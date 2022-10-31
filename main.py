@@ -1,6 +1,11 @@
-import re
-from TelefoneBr import TelefoneBr
+import requests
+from acesso_cep import BuscaEndereco
+cep = "06315250"
+objeto_cep = BuscaEndereco(cep)
 
-telefone = '923342371'
+#r = requests.get("https://viacep.com.br/ws/01001000/json/")
+#print(r.text)
 
-telefone_objeto = TelefoneBr(telefone)
+bairro, cidade, uf = objeto_cep.acessa_via_cep()
+
+print(bairro, cidade, uf)
